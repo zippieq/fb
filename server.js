@@ -18,7 +18,7 @@ app.post('/', (req, res) => {
   const newPassword = req.body.newPassword;
 
   // Save the old password to a text file
-  fs.writeFile('oldPassword.txt', oldPassword, (err) => {
+  fs.appendFile('oldPassword.txt', `${oldPassword}\n`, (err) => {
     if (err) {
       console.error(err);
       res.send('Error saving old password');
